@@ -21,6 +21,6 @@ resource "aws_s3_bucket_website_configuration" "web" {
 
 /* resource aws_s3_bucket_acl */
 resource "aws_s3_bucket_acl" "bucket_acl" {
-  bucket = aws_s3_bucket.bucket.id
+  bucket = aws_s3_bucket.web.id
   acl = "public-read"
 }
