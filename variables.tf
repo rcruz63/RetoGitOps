@@ -7,3 +7,7 @@ variable "s3_name" {
 variable "index_name" {
     type = string
 }
+
+variable "error_name" {
+    type = string
+}
