@@ -12,8 +12,8 @@ pipeline {
 
     environment {
         withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'), string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY')]) {
-            echo ${AWS_ACCESS_KEY_ID}
-            echo ${AWS_SECRET_ACCESS_KEY}
+            sh 'echo ${AWS_ACCESS_KEY_ID}'
+            echo AWS_SECRET_ACCESS_KEY
         }
     }
 
@@ -27,6 +27,7 @@ pipeline {
 
         stage ("Terraform init") {
             steps {
+                sh 'echo ${AWS_ACCESS_KEY_ID}'
                 sh "terraform init"
             }
         }
