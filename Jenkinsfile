@@ -13,9 +13,8 @@ pipeline {
     environment {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-    }
+    }  
     
-
     stages {
         stage("Initialize") {
             steps {
@@ -26,6 +25,7 @@ pipeline {
 
         stage ("Terraform init") {
             steps {
+                sh "find / -name sonar-scanner 2>/dev/null "
                 sh "terraform init"
             }
         }
