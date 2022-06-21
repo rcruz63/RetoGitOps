@@ -41,6 +41,7 @@ pipeline {
         stage ("Terraform plan") {
             when { not { branch 'main' } }
             steps {
+                sh "aws sts get-caller-identity"
                 sh "terraform plan"
             }
         }
