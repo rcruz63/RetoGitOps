@@ -36,14 +36,16 @@ pipeline {
             }
         }
 
-        /*stage ("Sonar: Regular Branch Check") {
+        stage ("Sonar: Regular Branch Check") {
             when { not { branch 'PR-*' } }
             steps {
                 // Make analysis of the branch with SonarScanner and send it to SonarCloud
                 withSonarQubeEnv ('RcsSonar') {
-                    sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar \
+                    sh 'sonar-scanner \
                         -Dsonar.organization=rcruz63 \
                         -Dsonar.projectKey=rcruz63_RetoGitOps \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=https://sonarcloud.io \
                         -Dsonar.branch.name="$BRANCH_NAME"'
                 }
             }
@@ -73,7 +75,7 @@ pipeline {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        }*/
+        }
 
         // stage "test"
         stage("test") {
