@@ -9,8 +9,7 @@ cfg.commitValidation.enabled = false
 pipeline {
 
     agent any
-
-    
+   
     environment {
         AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
         AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
@@ -27,17 +26,11 @@ pipeline {
 
         stage("AWS Credentials") {
             steps {
-                /*withCredentials(
-                    [
-                        string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'), 
-                        string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY')
-                    ]
-                ) {*/
-                    sh 'echo ${AWS_ACCESS_KEY_ID}'
-                    echo AWS_ACCESS_KEY_ID
-                }
+                sh 'echo ${AWS_ACCESS_KEY_ID}'
+                echo AWS_ACCESS_KEY_ID
             }
         }
+        
 
         stage ("Terraform init") {
             steps {
