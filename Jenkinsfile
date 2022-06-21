@@ -36,7 +36,7 @@ pipeline {
             }
         }
 
-        stage ("Sonar: Regular Branch Check") {
+        /*stage ("Sonar: Regular Branch Check") {
             when { not { branch 'PR-*' } }
             steps {
                 // Make analysis of the branch with SonarScanner and send it to SonarCloud
@@ -73,7 +73,7 @@ pipeline {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        }
+        }*/
 
         // stage "test"
         stage("test") {
