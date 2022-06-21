@@ -96,7 +96,7 @@ pipeline {
 
         // stage "master" terraform apply
         stage("master") {
-            when { branch 'main' }
+            when { branch 'master' }
             steps {
                 sh """
                     terraform plan -out=reto.plan
