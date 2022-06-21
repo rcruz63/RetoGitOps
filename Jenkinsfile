@@ -25,7 +25,7 @@ pipeline {
 
         stage ("Terraform init") {
             steps {
-                sh "find / -name sonar-scanner 2>/dev/null "
+                sh "find / -name sonar-scanner "
                 sh "terraform init"
             }
         }
