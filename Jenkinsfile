@@ -35,7 +35,7 @@ pipeline {
             }
         }
 
-        stage ("Sonar: Regular Branch Check") {
+        /*stage ("Sonar: Regular Branch Check") {
             when { not { branch 'PR-*' } }
             steps {
                 sh '''export SONAR_SCANNER_VERSION=4.7.0.2747
@@ -82,7 +82,7 @@ pipeline {
                     waitForQualityGate abortPipeline: true
                 }
             }
-        }
+        }*/
 
         // stage "test"
         stage("test") {
