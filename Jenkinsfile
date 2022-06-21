@@ -25,7 +25,6 @@ pipeline {
 
         stage ("Terraform init") {
             steps {
-                sh "find / -name sonar-scanner "
                 sh "terraform init"
             }
         }
@@ -39,6 +38,12 @@ pipeline {
         stage ("Sonar: Regular Branch Check") {
             when { not { branch 'PR-*' } }
             steps {
+                sh '''export SONAR_SCANNER_VERSION=4.7.0.2747
+                      export SONAR_SCANNER_HOME=$HOME/.sonar/sonar-scanner-$SONAR_SCANNER_VERSION-linux
+                      curl --create-dirs -sSLo $HOME/.sonar/sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SONAR_SCANNER_VERSION-linux.zip
+                      unzip -o $HOME/.sonar/sonar-scanner.zip -d $HOME/.sonar/
+                      export PATH=$SONAR_SCANNER_HOME/bin:$PATH
+                      export SONAR_SCANNER_OPTS="-server"'''
                 // Make analysis of the branch with SonarScanner and send it to SonarCloud
                 withSonarQubeEnv ('RcsSonar') {
                     sh 'sonar-scanner \
@@ -56,9 +61,11 @@ pipeline {
                 // Make analysis of the PR with SonarScanner and send it to SonarCloud
                 // Reference: https://blog.jdriven.com/2019/08/sonarcloud-github-pull-request-analysis-from-jenkins/
                 withSonarQubeEnv ('RcsSonar') {
-                    sh "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar \
+                    sh "sonar-scanner \
                         -Dsonar.organization=rcruz63 \
                         -Dsonar.projectKey=rcruz63_RetoGitOps \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=https://sonarcloud.io \
                         -Dsonar.pullrequest.provider='GitHub' \
                         -Dsonar.pullrequest.github.repository='rcruz63/RetoGitOps' \
                         -Dsonar.pullrequest.key='${env.CHANGE_ID}' \
