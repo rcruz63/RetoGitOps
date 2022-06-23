@@ -1,5 +1,28 @@
 # Changelog
 
+## v1.1.0 (2022-06-23)
+
+### Changes
+
+#### New
+
+* Sonar come back again ([cc04981](https://github.com/rcruz63/RetoGitOps/commit/cc04981))
+* index.html to the S3 ([557666d](https://github.com/rcruz63/RetoGitOps/commit/557666d))
+
+#### Fix
+
+* avoid to stop build to Sonar ([2338c5f](https://github.com/rcruz63/RetoGitOps/commit/2338c5f))
+* bucket policy ([e06f8a5](https://github.com/rcruz63/RetoGitOps/commit/e06f8a5))
+* 'main' to 'master' ([983bb8a](https://github.com/rcruz63/RetoGitOps/commit/983bb8a))
+
+#### Build
+
+* Update CHANGELOG ([34fc145](https://github.com/rcruz63/RetoGitOps/commit/34fc145))
+
+### Authors
+
+* Raul de la Cruz
+
 ## v1.0.0 (2022-06-21)
 
 ### Changes
