@@ -1,5 +1,25 @@
 # Changelog
 
+## v2.0.0 (2022-06-25)
+
+### Changes
+
+#### New
+
+* Ansible for index.html using jinja2 template ([8c46d51](https://github.com/rcruz63/RetoGitOps/commit/8c46d51))
+* CHANGELOG v1.1.0 Terraform + Sonar ([9c1c774](https://github.com/rcruz63/RetoGitOps/commit/9c1c774))
+
+#### Fix
+
+* I need a first index file ([6b9f186](https://github.com/rcruz63/RetoGitOps/commit/6b9f186))
+* Jinja2 template Error ([67ba1bb](https://github.com/rcruz63/RetoGitOps/commit/67ba1bb))
+* Correct the ansible mistake putting the index ([00dbff0](https://github.com/rcruz63/RetoGitOps/commit/00dbff0))
+* Generate the index.html ([6a93215](https://github.com/rcruz63/RetoGitOps/commit/6a93215))
+
+### Authors
+
+* Raul de la Cruz
+
 ## v1.1.0 (2022-06-23)
 
 ### Changes

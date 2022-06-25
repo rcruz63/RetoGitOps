@@ -1,0 +1,10 @@
+- hosts: localhost
+  vars:
+    version: "{{ lookup('file', 'version.txt') }}"
+  tasks:
+  - name: Create index file using Jinja2 template
+    template:
+      src: index.j2
+      dest: index.html
+  
+     
