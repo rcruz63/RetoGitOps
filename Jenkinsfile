@@ -80,11 +80,11 @@ pipeline {
 
         // stage "test"
         stage("test") {
-            when {
-                branch 'PR-*'
-            }
             steps {
-                echo "test"
+
+                sh """
+                    ansible-playbook s3_web.yml --check                
+                """
             }
         }
 
@@ -95,6 +95,7 @@ pipeline {
                 sh """
                     terraform plan -out=reto.plan
                     terraform apply reto.plan
+                    ansible-playbook s3_web.yml
                 """
             }
         }
