@@ -1,0 +1,11 @@
+- hosts: localhost
+  tasks: 
+  - name: Get value of the variable 'version' from a file
+    vars:
+      version: "{{ lookup('file', 'version.txt') }}"
+  - name: Create index file using Jinja2 template
+    template:
+      src: index.j2
+      dest: index.html
+  
+     
