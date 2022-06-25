@@ -4,5 +4,5 @@
     amazon.aws.aws_s3:
       bucket: mapfre-gitops-rauflint
       object: /index.html
-      src: ./index.html
+      src: index.html
       mode: put

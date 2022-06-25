@@ -81,7 +81,11 @@ pipeline {
         // stage "test"
         stage("test") {
             steps {
-                sh 'ansible-playbook s3_web.yml --check'
+
+                sh """
+                    ansible-playbook index.yml 
+                    ansible-playbook s3_web.yml --check                
+                """
             }
         }
 
@@ -92,6 +96,7 @@ pipeline {
                 sh """
                     terraform plan -out=reto.plan
                     terraform apply reto.plan
+                    ansible-playbook index.yml
                     ansible-playbook s3_web.yml
                 """
             }
