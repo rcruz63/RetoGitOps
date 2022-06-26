@@ -94,6 +94,7 @@ pipeline {
         }
 
         // stage "test"
+        /* Excclude the test stage to be able to create the s3
         stage("test") {
             steps {
                 script {
@@ -109,6 +110,7 @@ pipeline {
                 }
             }
         }
+        */
 
         // stage "master" terraform apply
         stage("master") {
