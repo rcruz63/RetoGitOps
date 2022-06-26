@@ -1,6 +1,34 @@
 # Changelog
 
-## v2.0.0 (2022-06-25)
+## Unreleased
+
+### Changes
+
+#### Build
+
+* CHANGELOG 2.1.1 ([c860e99](https://github.com/rcruz63/RetoGitOps/commit/c860e99))
+
+### Authors
+
+* Raul de la Cruz
+
+## v2.1.1 (2022-06-26)
+
+### Changes
+
+#### New
+
+* Too Big change: withCredentials + folders ([d90c6b0](https://github.com/rcruz63/RetoGitOps/commit/d90c6b0))
+
+#### Fix
+
+* Exclude test stage to create the s3 bucket ([93ab472](https://github.com/rcruz63/RetoGitOps/commit/93ab472))
+
+### Authors
+
+* Raul de la Cruz
+
+## v2.1.0 (2022-06-25)
 
 ### Changes
 
@@ -15,6 +43,10 @@
 * Jinja2 template Error ([67ba1bb](https://github.com/rcruz63/RetoGitOps/commit/67ba1bb))
 * Correct the ansible mistake putting the index ([00dbff0](https://github.com/rcruz63/RetoGitOps/commit/00dbff0))
 * Generate the index.html ([6a93215](https://github.com/rcruz63/RetoGitOps/commit/6a93215))
+
+#### Build
+
+* Update Changelog v2.0.0 ([233895b](https://github.com/rcruz63/RetoGitOps/commit/233895b))
 
 ### Authors
 
