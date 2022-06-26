@@ -19,19 +19,34 @@ pipeline {
         stage("Initialize") {
             steps {
                 jplStart(cfg)
-                sh "terraform init"
+                script {
+                  dir ("terraform") {
+                    sh "terraform init"
+                  }
+                }
             }
         }
 
         stage ("Terraform init") {
             steps {
-                sh "terraform init"
+                script {
+                  dir ("terraform") {
+                    sh "terraform init"
+                  }
+                }
             }
         }
         stage ("Terraform plan") {
             when { not { branch 'main' } }
             steps {
-                sh "terraform plan"
+                script {
+                  dir ("terraform") {
+                    withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'), 
+                                     string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY')]) {
+                      sh "terraform plan"
+                    }
+                  }
+                }
             }
         }
 
@@ -79,29 +94,60 @@ pipeline {
         }
 
         // stage "test"
+        /* Excclude the test stage to be able to create the s3
         stage("test") {
             steps {
+                script {
+                  dir ("ansible") {
+                    withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'), 
+                                     string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY')]) {
 
-                sh """
-                    ansible-playbook s3_web.yml --check                
-                """
+                      sh """
+                         ansible-playbook s3_web.yml --check                
+                      """
+                    }
+                  }
+                }
             }
         }
+        */
 
         // stage "master" terraform apply
         stage("master") {
             when { branch 'master' }
             steps {
-                sh """
-                    terraform plan -out=reto.plan
-                    terraform apply reto.plan
-                    ansible-playbook s3_web.yml
-                """
+                script {
+                  dir ("terraform") {
+                    withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'), 
+                                     string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY')]) {
+                      sh """
+                        terraform plan -out=reto.plan
+                        terraform apply -input=false -auto-approve reto.plan
+                      """
+                    }
+                  }
+                  dir("ansible"){
+                    withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'), 
+                                     string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY')]) {
+                      sh """
+                        ansible-playbook s3_web.yml
+                      """
+                    }
+
+                  }
+                }
             }
         }
         stage ("Terraform show") {
             steps {
-                sh "terraform show"
+                script {
+                  dir ("terraform") {
+                    withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'), 
+                                     string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY')]) {
+                      sh "terraform show"
+                    }
+                  }
+                }
             }
         }
     }
