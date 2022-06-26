@@ -1,5 +1,33 @@
 # Changelog
 
+## Unreleased
+
+### Changes
+
+#### New
+
+* Too Big change: withCredentials + folders ([d90c6b0](https://github.com/rcruz63/RetoGitOps/commit/d90c6b0))
+
+#### Fix
+
+* Exclude test stage to create the s3 bucket ([93ab472](https://github.com/rcruz63/RetoGitOps/commit/93ab472))
+
+### Authors
+
+* Raul de la Cruz
+
+## v2.1.0 (2022-06-25)
+
+### Changes
+
+#### Build
+
+* Update Changelog v2.0.0 ([233895b](https://github.com/rcruz63/RetoGitOps/commit/233895b))
+
+### Authors
+
+* Raul de la Cruz
+
 ## v2.0.0 (2022-06-25)
 
 ### Changes
