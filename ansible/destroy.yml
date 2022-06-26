@@ -1,0 +1,8 @@
+- hosts: localhost
+  tasks:
+  - name: delete index.html from s3
+    amazon.aws.aws_s3:
+      bucket: mapfre-gitops-rauflint
+      object: /index.html
+      mode: delobj
+    
