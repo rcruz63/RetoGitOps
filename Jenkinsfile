@@ -43,6 +43,7 @@ pipeline {
                   dir ("terraform") {
                     withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'), 
                                      string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY')]) {
+                      sh "aws sts get-caller-identity"
                       sh "terraform plan"
                     }
                   }
@@ -94,7 +95,7 @@ pipeline {
         }
 
         // stage "test"
-        /* Excclude the test stage to be able to create the s3
+         Excclude the test stage to be able to create the s3
         stage("test") {
             steps {
                 script {
@@ -102,15 +103,14 @@ pipeline {
                     withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'), 
                                      string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY')]) {
 
-                      sh """
-                         ansible-playbook s3_web.yml --check                
-                      """
+                      sh "aws sts get-caller-identity"
+                      sh "echo ansible-playbook s3_web.yml --check"
                     }
                   }
                 }
             }
         }
-        */
+        
 
         // stage "master" terraform apply
         stage("master") {
