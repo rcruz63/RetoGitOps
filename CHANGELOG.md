@@ -1,11 +1,24 @@
 # Changelog
 
-## Unreleased
+## v3.0.0 (2022-06-27)
 
 ### Changes
 
+#### Fix
+
+* Hope lost ([c819945](https://github.com/rcruz63/RetoGitOps/commit/c819945))
+* where are the echos? ([3f5af5b](https://github.com/rcruz63/RetoGitOps/commit/3f5af5b))
+* Credentials the horror ([dc07978](https://github.com/rcruz63/RetoGitOps/commit/dc07978))
+* change privileges ([8e31934](https://github.com/rcruz63/RetoGitOps/commit/8e31934))
+* tets Credentials ([66b0122](https://github.com/rcruz63/RetoGitOps/commit/66b0122))
+* test Credentials 3 ([ae7aa03](https://github.com/rcruz63/RetoGitOps/commit/ae7aa03))
+* test credentials 2 ([d125017](https://github.com/rcruz63/RetoGitOps/commit/d125017))
+* Test Credentials ([3a927fc](https://github.com/rcruz63/RetoGitOps/commit/3a927fc))
+
 #### Build
 
+* Recover the working version ([98bd748](https://github.com/rcruz63/RetoGitOps/commit/98bd748))
+* CHANGELOG updated ([c5b47cb](https://github.com/rcruz63/RetoGitOps/commit/c5b47cb))
 * CHANGELOG 2.1.1 ([c860e99](https://github.com/rcruz63/RetoGitOps/commit/c860e99))
 
 ### Authors
@@ -28,7 +41,7 @@
 
 * Raul de la Cruz
 
-## v2.1.0 (2022-06-25)
+## v2.0.0 (2022-06-25)
 
 ### Changes
 
