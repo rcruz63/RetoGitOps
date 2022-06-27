@@ -1,5 +1,33 @@
 # Changelog
 
+## Unreleased
+
+### Changes
+
+#### Fix
+
+* Correct comit version ([e7a837c](https://github.com/rcruz63/RetoGitOps/commit/e7a837c))
+
+### Authors
+
+* Raul de la Cruz
+
+## v3.0.1 (2022-06-27)
+
+### Changes
+
+#### Build
+
+* Release v3.0.0 ([8c829ef](https://github.com/rcruz63/RetoGitOps/commit/8c829ef))
+
+#### Misc
+
+* Release v3.0.0 ([1fb8adf](https://github.com/rcruz63/RetoGitOps/commit/1fb8adf))
+
+### Authors
+
+* Raul de la Cruz
+
 ## v3.0.0 (2022-06-27)
 
 ### Changes
