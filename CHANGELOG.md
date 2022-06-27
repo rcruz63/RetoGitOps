@@ -1,12 +1,17 @@
 # Changelog
 
-## Unreleased
+## v3.0.2 (2022-06-27)
 
 ### Changes
 
 #### Fix
 
+* Clean install ([24094a3](https://github.com/rcruz63/RetoGitOps/commit/24094a3))
 * Correct comit version ([e7a837c](https://github.com/rcruz63/RetoGitOps/commit/e7a837c))
+
+#### Build
+
+* CHANGELOG v3.0.1 ([abb2102](https://github.com/rcruz63/RetoGitOps/commit/abb2102))
 
 ### Authors
 
