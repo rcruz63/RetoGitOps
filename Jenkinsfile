@@ -107,6 +107,23 @@ pipeline {
                 }
             }
         }
+
+        stage("nexttag") {
+            steps {
+                script {
+                  sh """
+                    NEXTTAG=`./nexttag/entrypoint.sh`
+                    echo $NEXTTAG > ./ansible/version.txt
+                    git tag -a $NEXTTAG -m "Release $NEXTTAG"
+                    git push --tags
+                    ./nextlog/entrypoint.sh > CHANGELOG.md
+                    git add CHANGELOG.md
+                    git commit -m "Release $NEXTTAG"
+                    git push
+                  """
+                }
+            }
+        }
         
 
         // stage "master" terraform apply
